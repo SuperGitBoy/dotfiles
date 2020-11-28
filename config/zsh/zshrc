@@ -12,11 +12,12 @@ SAVEHIST=1000
 setopt HIST_IGNORE_DUPS
 setopt HIST_FIND_NO_DUPS
 
-autoload -U compinit
+fpath=(~/.config/zsh/completion $fpath)
+autoload -U compinit && compinit 
 zstyle ':completion:*' menu select
-zmodload zsh/complist
+zmodload -i zsh/complist
 compinit
-_comp_options+=(globdots)
+comp_options+=(globdots)
 
 setopt appendhistory autocd beep extendedglob nomatch notify
 bindkey -v
@@ -58,6 +59,10 @@ fi
 
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey "^[[1;5C" forward-word
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 source /etc/zsh_command_not_found

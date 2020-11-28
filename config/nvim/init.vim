@@ -5,7 +5,7 @@ set encoding=utf-8
 scriptencoding utf-8
 set number relativenumber
 set mouse=a
-set termguicolors
+" set termguicolors
 set virtualedit=block
 set ttimeoutlen=0
 set showbreak=↪
@@ -25,8 +25,8 @@ nnoremap <SPACE> <Nop>
 let mapleader=" "
 
 " when scrolling, keep cursor 3 lines away from screen border
-set scrolloff=2
-set sidescrolloff=3
+set scrolloff=7
+set sidescrolloff=7
 
 " System Clipboard
 set clipboard+=unnamedplus
@@ -68,10 +68,14 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-repeat'
 Plug 'neomake/neomake'
+Plug 'lambdalisue/suda.vim'
 call plug#end()
 
 "theme
 colorscheme nord
+
+" suda.vim config
+let g:suda_smart_edit = 1
 
 " Goyo config
 let g:goyo_width=120
@@ -138,13 +142,17 @@ endfunction()
 augroup EnterGoyo
 	autocmd! User GoyoEnter Limelight 0.5
 	call NumberToggle()
+	set scrolloff=999
 augroup END
 
 augroup LeaveGoyo
 	autocmd! User GoyoLeave Limelight!
 	call NumberToggle()
+	set scrolloff=7
 augroup END
+
 nnoremap <silent> <leader>g :Goyo<CR>
+
 " Personal Keybindings
 nnoremap <silent> <C-s>n :NERDTreeToggle<CR>
 nnoremap <silent> <C-s>f :FZF<CR>
@@ -175,3 +183,7 @@ vnoremap <del> "_x
 " CapsLock switch
 au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
+
+" redraw window so search terms are centered
+nnoremap n nzz
+nnoremap N Nzz
