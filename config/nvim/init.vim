@@ -5,7 +5,7 @@ set encoding=utf-8
 scriptencoding utf-8
 set number relativenumber
 set mouse=a
-" set termguicolors
+set termguicolors
 set virtualedit=block
 set ttimeoutlen=0
 set showbreak=↪
@@ -24,7 +24,7 @@ set directory=~/.config/nvim/_swap/
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 
-" when scrolling, keep cursor 3 lines away from screen border
+" when scrolling, keep cursor 7 lines away from screen border
 set scrolloff=7
 set sidescrolloff=7
 
@@ -35,8 +35,10 @@ set clipboard+=unnamedplus
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc>
 
 " Enable autocompletion
-"set wildmode=longest,list,full
-set wildmode=list:full
+set wildmenu
+set ignorecase
+set smartcase
+set wildmode=longest:full,full
 
 " Disable autocomment on new line
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -184,6 +186,13 @@ vnoremap <del> "_x
 au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 
-" redraw window so search terms are centered
+" Redraw window so search terms are centered
 nnoremap n nzz
 nnoremap N Nzz
+
+" Moving around in insert mode
+inoremap <silent> <C-h> <C-o>I
+inoremap <silent> <C-j> <C-o>o
+inoremap <silent> <C-k> <C-o>O
+inoremap <silent> <C-l> <C-o>A
+
