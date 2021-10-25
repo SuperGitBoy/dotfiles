@@ -1,3 +1,7 @@
+
+nvim/_backup/*
+nvim/_swap/*
 nvim/_undo/*
+
 zsh/histfile
 

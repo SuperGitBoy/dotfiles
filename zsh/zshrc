@@ -1,3 +1,5 @@
+export EDITOR='nvim'
+
 autoload -U colors && colors
 #PS1="%n@%m:%~%# "
 PS1="%B%{$fg[green]%}%n@%m%{$fg[white]%}:%{$fg[blue]%}%~%{$fg[white]%}%(!.#.$)%b "

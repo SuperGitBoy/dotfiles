@@ -37,6 +37,6 @@ alias tmux='tmux -f ~/.config/tmux/tmux.conf -u'
 alias vdf='f() {pdftotext -layout $1 - | vim +Goyo};f' 
 alias vim='nvim'
 alias vpm='$EDITOR docker-compose.yml'
-alias what=whence
+alias what='whence'
 alias ytdla='youtube-dl -x --audio-format vorbis --audio-quality 0'
 alias ytdla_delete_cache='rm ~/.cache/youtube-dl/youtube-sigfuncs/js_vflset*'
