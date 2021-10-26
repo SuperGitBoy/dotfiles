@@ -76,6 +76,9 @@ call plug#end()
 "theme
 colorscheme nord
 
+" air-line
+let g:airline_powerline_fonts = 1
+
 " suda.vim config
 let g:suda_smart_edit = 1
 
