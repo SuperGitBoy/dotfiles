@@ -7,6 +7,7 @@ alias aptitude='sudo aptitude'
 alias aptl='apt list --upgradable'
 alias aptu='apt update'
 alias calibre_update="sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin"
+alias check='checkupdates && yay -Qum'
 alias checkinstall='checkinstall --install=no'
 alias cp='cp -vi'
 alias egrep='egrep --color=auto'
