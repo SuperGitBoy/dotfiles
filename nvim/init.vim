@@ -71,6 +71,8 @@ Plug 'junegunn/limelight.vim'
 Plug 'tpope/vim-repeat'
 Plug 'neomake/neomake'
 Plug 'lambdalisue/suda.vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'wfxr/minimap.vim'
 call plug#end()
 
 "theme
