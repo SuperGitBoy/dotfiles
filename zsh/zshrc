@@ -1,4 +1,8 @@
 export EDITOR='nvim'
+export BROWSER='brave'
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
 
 autoload -U colors && colors
 #PS1="%n@%m:%~%# "

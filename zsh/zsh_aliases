@@ -25,6 +25,7 @@ alias ll='exa --icons --group-directories-first --all --long'
 alias ls='exa --icons --group-directories-first'
 alias lsblk='lsblk -a -e 7' 
 alias mkd='mkdir -pv'
+alias mpc='ncmpcpp'
 alias mv='mv -vi'
 alias open='xdg-open'
 alias pm=podman
