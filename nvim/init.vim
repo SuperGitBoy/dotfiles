@@ -73,6 +73,7 @@ Plug 'neomake/neomake'
 Plug 'lambdalisue/suda.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'wfxr/minimap.vim'
+Plug 'ap/vim-css-color'
 call plug#end()
 
 "theme
@@ -95,9 +96,9 @@ inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Plugin key-mappings.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+imap <S-TAB>     <Plug>(neosnippet_expand_or_jump)
+smap <S-TAB>     <Plug>(neosnippet_expand_or_jump)
+xmap <S-TAB>     <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 " Note: It must be "imap" and "smap".  It uses <Plug> mappings.
@@ -112,6 +113,7 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 "if has('conceal')
 "  set conceallevel=2 concealcursor=niv
 "endif
+
 
 " Zoom / Restore window.
 function! s:ZoomToggle() abort
@@ -128,7 +130,8 @@ endfunction
 command! ZoomToggle call s:ZoomToggle()
 nnoremap <silent> <C-W><C-o> :ZoomToggle<CR>
 
-" tagbar toggle <F8>
+" Tagbar settings
+let g:tagbar_width = max([20, winwidth(0) / 6])
 nmap <silent> <F8> :TagbarToggle<CR>
 
 " Highlight yanked text
@@ -200,4 +203,3 @@ inoremap <silent> <C-h> <C-o>I
 inoremap <silent> <C-j> <C-o>o
 inoremap <silent> <C-k> <C-o>O
 inoremap <silent> <C-l> <C-o>A
-
