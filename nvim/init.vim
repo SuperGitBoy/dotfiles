@@ -74,6 +74,7 @@ Plug 'lambdalisue/suda.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'wfxr/minimap.vim'
 Plug 'ap/vim-css-color'
+Plug 'mbbill/undotree'
 call plug#end()
 
 "theme
@@ -81,6 +82,10 @@ colorscheme nord
 
 " air-line
 let g:airline_powerline_fonts = 1
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " suda.vim config
 let g:suda_smart_edit = 1
