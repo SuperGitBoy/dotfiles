@@ -10,6 +10,8 @@ alias apt='sudo apt'
 alias check='checkupdates && yay -Qum'
 alias checkinstall='checkinstall --install=no'
 alias cp='cp -vi'
+alias docker="podman"
+alias docker-compose="podman-compose"
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias find='find / -name '$1'2>/dev/null'
