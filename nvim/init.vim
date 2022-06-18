@@ -87,6 +87,10 @@ let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 let g:airline#extensions#tabline#fnamemod = ':t'
 
+" NerdTree
+let g:netrw_dirhistmax = 0
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
 " suda.vim config
 let g:suda_smart_edit = 1
 
