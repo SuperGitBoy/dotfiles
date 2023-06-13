@@ -12,6 +12,7 @@ alias checkinstall='checkinstall --install=no'
 alias cp='cp -vi'
 alias docker="podman"
 alias docker-compose="podman-compose"
+alias egpu_off="sudo egpu_off"
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias find='find / -name '$1'2>/dev/null'
@@ -45,5 +46,5 @@ alias vim='nvim'
 alias vpm='$EDITOR docker-compose.yml'
 alias what='whence'
 alias wol_dbox='wol ec:8e:b5:6d:f8:a6'
-alias ytdla='youtube-dl -x --audio-format vorbis --audio-quality 0'
+alias ytdla='yt-dlp -x --audio-format vorbis --audio-quality 0'
 alias ytdla_delete_cache='rm ~/.cache/youtube-dl/youtube-sigfuncs/js_vflset*'

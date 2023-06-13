@@ -40,8 +40,9 @@ set ignorecase
 set smartcase
 set wildmode=longest:full,full
 
-" Disable autocomment on new line
+" Disable autocomment on new line and commentary keybind
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+noremap <silent> <leader>/ :Files<CR>
 
 " Split directions and navigation
 set splitbelow splitright
@@ -51,8 +52,13 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 " vim-plug config
-" to install vim-plug:
-" sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+if ! filereadable(system('echo -n "${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim"'))
+	echo "Downloading junegunn/vim-plug to manage plugins..."
+	silent !mkdir -p ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/
+	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
+	autocmd VimEnter * PlugInstall
+endif
+
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
@@ -75,7 +81,13 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'wfxr/minimap.vim'
 Plug 'ap/vim-css-color'
 Plug 'mbbill/undotree'
+Plug 'tpope/vim-commentary'
 call plug#end()
+
+" invisible characters
+set listchars=eol:⏎,trail:␠,nbsp:⎵,tab:▷▷⋮
+set list
+nnoremap <silent> <leader>h :set list!<CR>
 
 "theme
 colorscheme nord
@@ -90,6 +102,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " NerdTree
 let g:netrw_dirhistmax = 0
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeMinimalUI=1
 
 " suda.vim config
 let g:suda_smart_edit = 1
@@ -173,8 +186,8 @@ augroup END
 nnoremap <silent> <leader>g :Goyo<CR>
 
 " Personal Keybindings
-nnoremap <silent> <C-s>n :NERDTreeToggle<CR>
-nnoremap <silent> <C-s>f :FZF<CR>
+nnoremap <silent> <leader>e :NERDTreeToggle<CR>
+nnoremap <silent> <leader>f :FZF<CR>
 tnoremap <Esc> <C-\><C-n>
 nnoremap Q <Nop>
 
@@ -190,7 +203,7 @@ function! CreateNewTabShell()
 	setlocal norelativenumber
 endfunction()
 
-nnoremap <silent> <C-s>t :call CreateNewTabShell()<CR>
+nnoremap <silent> <leader>t :call CreateNewTabShell()<CR>
 
 " Python
 autocmd FileType python map <buffer> <F5> :term python3 % <CR>
