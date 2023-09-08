@@ -11,6 +11,9 @@ set ttimeoutlen=0
 set showbreak=↪
 set noshelltemp
 set shortmess=atI
+set iskeyword+=-
+set tabstop=4
+set shiftwidth=4
 
 " Undo settings
 set undofile
